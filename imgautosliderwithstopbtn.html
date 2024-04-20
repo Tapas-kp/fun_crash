@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            height: 300px;
+            width: 85%;
+            border: 1px solid black;
+            margin: auto;
+            
+        }
+        #bt{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="" alt="">
+
+        <div  id="bt">
+            <button id="prev">< prev</button>
+            <button id="next">> next</button>
+        </div>
+        <button id="stop">stop</button>
+        
+    </div>
+    
+    
+</body>
+</html>
+<script>
+     let imgarr=[
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F9da44dec-d660-43bb-ac4f-3649a40daeb5.gif&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F326fb727-594f-4bf2-b88b-7a4b427b0eab.gif&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F17f95391-9474-4d0f-aad8-021b6cbfe245.gif&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F4d271e23-5554-4850-80f9-da4387a6a6fc.gif&w=1920&q=75"
+    ]
+
+
+    let image=document.querySelector("img")
+    let pre=document.querySelector("#prev")
+    let nex=document.querySelector("#next")
+    let sp=document.querySelector("#stop")
+
+    let currimg=0
+    
+    
+    function show(){
+       image.src=imgarr[currimg]
+        
+
+    }
+
+    function nek(){
+        currimg++
+        if(currimg>=imgarr.length){
+            currimg=0
+            
+        }
+        show()
+    }
+
+    function bek(){
+        currimg--
+        if(currimg<0){
+            currimg=imgarr.length-1
+        
+        }
+
+        show()
+        
+    }
+
+    
+
+    nex.addEventListener("click",nek)
+    pre.addEventListener("click",bek)
+    sp.addEventListener("click",khatam)
+    let vad=setInterval(nek,2000)
+
+    function khatam(){
+        clearInterval(vad)
+    }
+
+
+</script>
