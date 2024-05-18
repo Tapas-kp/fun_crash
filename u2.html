@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    
+
+// Gallery Component
+function Gallery({ children }) {
+  return (
+    <div className="gallery">
+      {children}
+    </div>
+  );
+}
+
+// Image Component
+function Image({ src, alt }) {
+  return (
+    <img className="image" src={src} alt={alt} />
+  );
+}
+
+// App Component (Usage Example)
+function App() {
+  return (
+    <div>
+      <h1>Image Gallery</h1>
+      <Gallery>
+        <Image src="https://via.placeholder.com/200" alt="Placeholder 1" />
+        <Image src="https://via.placeholder.com/200" alt="Placeholder 2" />
+        <Image src="https://via.placeholder.com/200" alt="Placeholder 3" />
+        <Image src="https://via.placeholder.com/200" alt="Placeholder 4" />
+        {/* Additional images can be included as needed */}
+      </Gallery>
+    </div>
+  );
+}
+
+// Rendering the App Component
+ReactDOM.render(<App />, document.getElementById('root'));
+
+  </script>
+</body>
+</html>
